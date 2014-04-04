@@ -25,9 +25,7 @@ body {
 <template>
   <input placeholder="Search" type="text" value="{{filter}}">
   <basic-filter-by-text filter="{{filter}}" class="hideMisses">
-    <div>Loaf of bread</div>
-    <div>Container of <i>milk</i></div>
-    <div>Stick of butter</div>
+    <content></content>
   </basic-filter-by-text>
 </template>
 </polymer-element>
@@ -35,7 +33,11 @@ body {
 </head>
 
 <body>
-  <filter-demo></filter-demo>
+  <filter-demo>
+    <div>Loaf of bread</div>
+    <div>Container of <i>milk</i></div>
+    <div>Stick of butter</div>
+  </filter-demo>
 </body>
 
 </html>

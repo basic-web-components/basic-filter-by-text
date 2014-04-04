@@ -1,0 +1,17 @@
+{
+  "name": "basic-filter-by-text",
+  "description": "Filters its children to only show those with content text matching a given target string",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "basic-filter-by-text.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  },
+  "keywords": [
+    "basic-web-components",
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*"
+  ]
+}

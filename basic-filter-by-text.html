@@ -16,6 +16,10 @@ searched recursively. (The content nodes themselves won't match).
 <template>
 
   <style>
+  :host {
+    display: block;
+  }
+  
   polyfill-next-selector {
     content: ':host > :not(.filterMatch)';
   }

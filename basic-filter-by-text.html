@@ -1,9 +1,66 @@
-<link rel="import" href="../polymer/polymer.html">
+<!--
+Filters its children to show those whose text content contains a given string.
 
-<polymer-element name="basic-filter-by-text" attributes="filter" noscript>
+The matches have a .filterMatch CSS class applied to them. Create styling rules
+to define whether the matches should be highlighted, the misses downplayed, etc.
+By default, nodes that don't match will be hidden with display: none.
+-->
+
+<link rel="import" href="../basic-element/basic-element.html">
+
+<polymer-element name="basic-filter-by-text" extends="basic-element" attributes="caseSensitive filter">
 
 <template>
-  Filter: {{filter}}
+
+  <style>
+  polyfill-next-selector {
+    content: ':host > :not(.filterMatch)';
+  }
+  ::content > :not(.filterMatch) {
+    display: none;
+  }
+  </style>
+
+  <content id="content"></content>
+  
 </template>
+
+<script>
+Polymer( "basic-filter-by-text", {
+
+  caseSensitive: false,
+
+  contentChanged: function() {
+    this._refresh();
+  },
+
+  filter: "",
+
+  filterChanged: function() {
+    this._refresh();
+  },
+
+  _refresh: function() {
+    var filter = this.filter;
+    var caseSensitive = this.caseSensitive;
+    if ( !caseSensitive ) {
+      filter = filter.toLowerCase();
+    }
+    var hasFilter = ( filter.length > 0 );
+    var nodes = this.$.content.getDistributedNodes();
+    Array.prototype.forEach.call( nodes, function( node ) {
+      if ( node.classList ) {
+        var text = node.textContent;
+        if ( !caseSensitive ) {
+          text = text.toLowerCase();
+        }          
+        var matches = ( text.indexOf( filter ) >= 0 );
+        node.classList.toggle( "filterMatch", matches );
+      }
+    });
+  }
+
+});
+</script>
 
 </polymer-element>

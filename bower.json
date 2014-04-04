@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "basic-filter-by-text.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#master"
+    "basic-element": "basic-web-components/basic-element#master"
   },
   "keywords": [
     "basic-web-components",

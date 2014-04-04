@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <title>basic-filter-by-text</title>
 <script src="../platform/platform.js"></script>
+<link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="basic-filter-by-text.html">
 
 <style>
@@ -20,9 +21,15 @@ body {
 }
 </style>
 
-<polymer-element name="filter-demo" noscript>
+<polymer-element name="filter-demo" attributes="filter" noscript>
+<template>
   <input placeholder="Search" type="text" value="{{filter}}">
-  <basic-filter-by-text filter="{{filter}}"></basic-filter-by-text>
+  <basic-filter-by-text filter="{{filter}}" class="hideMisses">
+    <div>Loaf of bread</div>
+    <div>Container of <i>milk</i></div>
+    <div>Stick of butter</div>
+  </basic-filter-by-text>
+</template>
 </polymer-element>
 
 </head>

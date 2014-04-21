@@ -48,14 +48,14 @@ Polymer( "basic-filter-by-text", {
   },
 
   _applyFilter: function( node, filter, caseSensitive ) {
-    if ( !caseSensitive ) {
+    if ( !caseSensitive && filter ) {
       filter = filter.toLowerCase();
     }
     var distributedNodes = node.getDistributedNodes();
     Array.prototype.forEach.call( distributedNodes, function( distributedNode ) {
       if ( distributedNode instanceof HTMLContentElement ) {
-        this._applyFilter( distributedNode );
-      } else  if ( distributedNode.classList ) {
+        this._applyFilter( distributedNode, filter, caseSensitive );
+      } else if ( distributedNode.classList ) {
         var text = distributedNode.textContent;
         if ( !caseSensitive ) {
           text = text.toLowerCase();

@@ -21,13 +21,28 @@ body {
 }
 </style>
 
-<polymer-element name="filter-demo" attributes="filter" noscript>
+<link rel="import" href="../basic-element/basic-element.html">
+<polymer-element name="filter-demo" attributes="filter" extends="basic-element">
 <template>
   <input placeholder="Search" type="text" value="{{filter}}">
   <basic-filter-by-text filter="{{filter}}" class="hideMisses">
     <content></content>
   </basic-filter-by-text>
 </template>
+<script>
+Polymer( "filter-demo", {
+
+  attached: function() {
+    this.log( "attached" );
+    this.super();
+  },
+
+  contentChanged: function() {
+    this.log( "contentChanged: " + this.innerHTML );
+  }
+
+});
+</script>
 </polymer-element>
 
 </head>

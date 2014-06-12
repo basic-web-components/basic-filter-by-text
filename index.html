@@ -21,67 +21,57 @@ body {
 }
 </style>
 
-<link rel="import" href="../basic-element/basic-element.html">
-<polymer-element name="filter-demo" attributes="filter" extends="basic-element">
-<template>
-  <input placeholder="Search" type="text" value="{{filter}}">
-  <basic-filter-by-text filter="{{filter}}" class="hideMisses">
-    <content></content>
-  </basic-filter-by-text>
-</template>
-<script>
-Polymer( "filter-demo" );
-</script>
-</polymer-element>
-
 </head>
 
 <body>
-  <filter-demo>
-    <div>Acai</div>
-    <div>Acerola</div>
-    <div>Apple</div>
-    <div>Apricot</div>
-    <div>Banana</div>
-    <div>Blackberry</div>
-    <div>Blueberry</div>
-    <div>Cantaloupe</div>
-    <div>Cherry</div>
-    <div>Cranberry</div>
-    <div>Currant</div>
-    <div>Date</div>
-    <div>Durian</div>
-    <div>Fig</div>
-    <div>Goji berry</div>
-    <div>Gooseberry</div>
-    <div>Grape</div>
-    <div>Grapefruit</div>
-    <div>Honeydew</div>
-    <div>Jackfruit</div>
-    <div>Kiwi</div>
-    <div>Kumquat</div>
-    <div>Lemon</div>
-    <div>Lime</div>
-    <div>Lychee </div>
-    <div>Mango</div>
-    <div>Mangosteen</div>
-    <div>Mulberry</div>
-    <div>Nectarine</div>
-    <div>Orange</div>
-    <div>Papaya</div>
-    <div>Passion Fruit</div>
-    <div>Peach</div>
-    <div>Pear</div>
-    <div>Pineapple</div>
-    <div>Plum</div>
-    <div>Pomegranate</div>
-    <div>Pomelo</div>
-    <div>Prickly Pear</div>
-    <div>Raspberry</div>
-    <div>Strawberry</div>
-    <div>Tangerine</div>
-    <div>Watermelon</div>
-  </filter-demo>
+  <template is="auto-binding">
+    <input placeholder="Search" type="text" value="{{filter}}">
+    <basic-filter-by-text filter="{{filter}}" class="hideMisses">
+      <div>Acai</div>
+      <div>Acerola</div>
+      <div>Apple</div>
+      <div>Apricot</div>
+      <div>Banana</div>
+      <div>Blackberry</div>
+      <div>Blueberry</div>
+      <div>Cantaloupe</div>
+      <div>Cherry</div>
+      <div>Cranberry</div>
+      <div>Currant</div>
+      <div>Date</div>
+      <div>Durian</div>
+      <div>Fig</div>
+      <div>Goji berry</div>
+      <div>Gooseberry</div>
+      <div>Grape</div>
+      <div>Grapefruit</div>
+      <div>Honeydew</div>
+      <div>Jackfruit</div>
+      <div>Kiwi</div>
+      <div>Kumquat</div>
+      <div>Lemon</div>
+      <div>Lime</div>
+      <div>Lychee </div>
+      <div>Mango</div>
+      <div>Mangosteen</div>
+      <div>Mulberry</div>
+      <div>Nectarine</div>
+      <div>Orange</div>
+      <div>Papaya</div>
+      <div>Passion Fruit</div>
+      <div>Peach</div>
+      <div>Pear</div>
+      <div>Pineapple</div>
+      <div>Plum</div>
+      <div>Pomegranate</div>
+      <div>Pomelo</div>
+      <div>Prickly Pear</div>
+      <div>Raspberry</div>
+      <div>Strawberry</div>
+      <div>Tangerine</div>
+      <div>Watermelon</div>
+    </basic-filter-by-text>
+  </template>
 </body>
 
 </html>

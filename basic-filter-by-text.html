@@ -51,17 +51,14 @@ Polymer( "basic-filter-by-text", {
     if ( !caseSensitive && filter ) {
       filter = filter.toLowerCase();
     }
-    var distributedNodes = node.getDistributedNodes();
-    Array.prototype.forEach.call( distributedNodes, function( distributedNode ) {
-      if ( distributedNode instanceof HTMLContentElement ) {
-        this._applyFilter( distributedNode, filter, caseSensitive );
-      } else if ( distributedNode.classList ) {
-        var text = distributedNode.textContent;
+    this.flattenChildNodes.forEach( function( child ) {
+      if ( child.classList ) {
+        var text = child.textContent;
         if ( !caseSensitive ) {
           text = text.toLowerCase();
         }          
         var matches = ( text.indexOf( filter ) >= 0 );
-        distributedNode.classList.toggle( "filterMatch", matches );
+        child.classList.toggle( "filterMatch", matches );
       }
     }.bind( this ));
   },

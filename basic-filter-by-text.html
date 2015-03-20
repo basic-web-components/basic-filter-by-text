@@ -41,30 +41,30 @@ Polymer({
     this._refresh();
   },
 
-  filter: "",
+  filter: '',
 
   filterChanged: function() {
     this._refresh();
   },
 
-  _applyFilter: function( node, filter, caseSensitive ) {
-    if ( !caseSensitive && filter ) {
+  _applyFilter: function(node, filter, caseSensitive) {
+    if (!caseSensitive && filter) {
       filter = filter.toLowerCase();
     }
-    this.flattenChildNodes.forEach( function( child ) {
-      if ( child.classList ) {
+    this.flattenChildNodes.forEach(function(child) {
+      if (child.classList) {
         var text = child.textContent;
-        if ( !caseSensitive ) {
+        if (!caseSensitive) {
           text = text.toLowerCase();
         }          
-        var matches = ( text.indexOf( filter ) >= 0 );
-        child.classList.toggle( "filterMatch", matches );
+        var matches = (text.indexOf(filter) >= 0);
+        child.classList.toggle('filterMatch', matches);
       }
-    }.bind( this ));
+    }.bind(this));
   },
 
   _refresh: function() {
-    this._applyFilter( this.$.content, this.filter, this.caseSensitive );
+    this._applyFilter(this.$.content, this.filter, this.caseSensitive);
   }
 
 });

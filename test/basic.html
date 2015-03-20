@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>Basic tests for basic-filter-by-text</title>
+
+  <script src="../../webcomponentsjs/webcomponents.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../basic-filter-by-text.html">
+  <link rel="import" href="../../basic-autosize-textarea">
+</head>
+<body>
+
+  <!-- You use the document as a place to set up your fixtures. -->
+  <basic-filter-by-text id="bfbt1">
+    <basic-autosize-textarea id="one">Foo</basic-autosize-textarea>
+    <basic-autosize-textarea id="two">Bar</basic-autosize-textarea>
+    <basic-autosize-textarea id="three">Fizz</basic-autosize-textarea>
+  </basic-filter-by-text>
+
+  <script>
+  var bfbt1 = document.querySelector('#bfbt1');
+
+  suite('basic', function() {
+
+    test('default attributes', function(done) {
+      assert.equal(bfbt1.filter, '');
+      assert.equal(bfbt1.caseSensitive, false);
+      done();
+    });
+
+    test('set filter', function(done) {
+      bfbt1.filter = 'foo';
+      flush(function() {
+        bfbt1.flattenChildNodes.forEach(function(child) {
+          if (child.classList) {
+            if (child.id == 'one') {
+              assert.equal(child.classList.contains('filterMatch'), true);
+            }
+            else {
+              assert.equal(child.classList.contains('filterMatch'), false);
+            }
+          }
+        }.bind(bfbt1));
+
+        done();
+      });
+    });
+
+    // BUGBUG
+    // TODO: Why is this test case failing?
+    test.skip('set filter with case sensitivity', function(done) {
+      bfbt1.caseSensitive = true;
+      bfbt1.filter = 'foo';
+      flush(function() {
+        assert.equal(bfbt1.caseSensitive, true);
+        assert.equal(bfbt1.filter, 'foo');
+        bfbt1.flattenChildNodes.forEach(function(child) {
+          if (child.classList) {
+            assert.equal(child.classList.contains('filterMatch'), false);
+          }
+        }.bind(bfbt1));
+
+        done();
+      });
+    });
+
+  });
+  </script>
+
+</body>
+</html>

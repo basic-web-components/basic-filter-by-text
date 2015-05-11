@@ -1,11 +1,11 @@
 {
   "name": "basic-filter-by-text",
   "description": "Filters its children to only show those with content text matching a given target string",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "license": "MIT",
   "main": "basic-filter-by-text.html",
   "dependencies": {
-    "basic-element": "basic-web-components/basic-element#master"
+    "basic-element": "basic-web-components/basic-element#^0.5.0"
   },
   "keywords": [
     "basic-web-components",
